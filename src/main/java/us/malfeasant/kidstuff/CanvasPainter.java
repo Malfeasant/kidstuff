@@ -16,9 +16,34 @@ public class CanvasPainter extends AnimationTimer {
         new SimpleObjectProperty<>(ColorNybble.LIGHTGREEN);
     
     private final Canvas canvas;
+    private final Memory memory;
 
-    public CanvasPainter(Canvas canv) {
+    private enum Register {
+        // TODO offsets for registers
+
+        BORDERCOLOR;
+    }
+    public CanvasPainter(Canvas canv, Memory mem) {
         canvas = canv;
+        memory = mem;
+        memory.attachDevice(0, new MemInterface() {
+
+            @Override
+            public byte peek(int addr) {
+                switch (addr) {
+                    
+                }
+                // TODO Auto-generated method stub
+                throw new UnsupportedOperationException("Unimplemented method 'peek'");
+            }
+
+            @Override
+            public void poke(int addr, byte data) {
+                // TODO Auto-generated method stub
+                throw new UnsupportedOperationException("Unimplemented method 'poke'");
+            }
+            
+        });
     }
 
     @Override

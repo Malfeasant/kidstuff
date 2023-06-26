@@ -13,8 +13,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        Memory mem = new Memory();
+
         var gfx = new Canvas(720, 480);
-        var painter = new CanvasPainter(gfx);
+        var painter = new CanvasPainter(gfx, mem);
         var pane = new StackPane(gfx);
         Scene scene = new Scene(pane);
         stage.setScene(scene);
