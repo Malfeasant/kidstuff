@@ -1,10 +1,6 @@
 package us.malfeasant.kidstuff;
 
 import javafx.animation.AnimationTimer;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.canvas.Canvas;
 
 public class CanvasPainter extends AnimationTimer {
