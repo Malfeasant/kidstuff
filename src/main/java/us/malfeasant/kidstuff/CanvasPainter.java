@@ -4,10 +4,12 @@ import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
 
 public class CanvasPainter extends AnimationTimer {
+    private static final int LASTLINE = 52;
+
     private VideoMode upperMode = VideoMode.TEXT;
     private VideoMode lowerMode = null;
     // text line that divides upper from lower part of screen- out of range disables lower
-    private int splitLine = -1; // 6 bits significant
+    private int splitLine = 0x3f; // 6 bits significant
     private ColorNybble borderColor = ColorNybble.LIGHTGREEN;
     private int bank = 0;   // sets the 1M bank accessible to the video system- 4 bits
     private int upperPage;  // 4k page within bank to pull gfx data from - 8 bits 
@@ -131,5 +133,13 @@ public class CanvasPainter extends AnimationTimer {
         var gc = canvas.getGraphicsContext2D();
         gc.setFill(borderColor.color);
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+
+        for (var line = 0; line < LASTLINE; ++line) {
+            if (line > splitLine) {
+
+            } else {
+
+            }
+        }
     }
 }
