@@ -1,10 +1,12 @@
 package us.malfeasant.kidstuff;
 
+import java.nio.ByteBuffer;
 import java.util.IdentityHashMap;
 import java.util.Map;
 
 public class Memory {
     private static final int RAMSIZE = 0x1000000;
+    private static final int VIDSIZE = 0x100000;
     private final byte[] mem = new byte[RAMSIZE];
 
     public void poke(int addr, byte data) {
@@ -47,5 +49,10 @@ public class Memory {
     }
     public void removeDevice(int page) {
         ioMap.remove(page);
+    }
+
+    public ByteBuffer getVideoBank(int bank) {
+        var offset = bank * VIDSIZE;
+        return ByteBuffer.wrap(mem, offset, VIDSIZE);
     }
 }
